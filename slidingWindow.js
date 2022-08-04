@@ -88,21 +88,52 @@
 // Input: [2, 1, 5, 1, 3, 2], k=3 
 // Output: 9
 
-const maxSum = (k, arr) => {
-  let start = 0
-  let  windowSum = 0
-  let  maxSum = 0
+// const maxSum = (k, arr) => {
+//   let start = 0
+//   let  windowSum = 0
+//   let  maxSum = 0
 
-  for( let i = 0; i < arr.length; i++){
+//   for( let i = 0; i < arr.length; i++){
+//     windowSum += arr[i];
+
+//     if(i >= k - 1){
+//       maxSum = Math.max(maxSum, windowSum);
+//       windowSum -= arr[start];
+//       start += 1;
+//     }
+//   }
+//   return maxSum;
+// }
+
+//Smallest Subarray With a Greater Sum
+
+// Input: [2, 1, 5, 2, 3, 2], S=7
+// Output: 2
+// Explanation: The smallest subarray with a sum greater than or equal to ‘7’ is [5, 2].
+
+// Input: [2, 1, 5, 2, 8], S=7
+// Output: 1
+// Explanation: The smallest subarray with a sum greater than or equal to ‘7’ is [8].
+
+const smallSubArray = (s, arr) => {
+  let minLength = Infinity;
+  let windowSum = 0;
+  let windowStart = 0;
+
+  for(let i = 0; i < arr.length; i++) {
     windowSum += arr[i];
 
-    if(i >= k - 1){
-      maxSum = Math.max(maxSum, windowSum);
-      windowSum -= arr[start];
-      start += 1;
+    while(windowSum >= s) {
+      minLength = Math.min(minLength, i - windowStart + 1);
+      windowSum -= arr[windowStart];
+      windowStart += 1
     }
   }
-  return maxSum;
+
+  if(minLength === Infinity) {
+    return 0;
+  }
+  return minLength;
 }
 
-
+console.log(smallSubArray(7, [2, 1, 5, 2, 3, 2]));
