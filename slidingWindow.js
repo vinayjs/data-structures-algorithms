@@ -35,10 +35,10 @@
 // console.log(findMaxSlidingWindow(2, [2,4,6]));
 // =============================================================================================================================
 
-// // Given an array of positive numbers and a positive number ‘k,’ 
+// // Given an array of positive numbers and a positive number ‘k,’
 // // find the maximum sum of any contiguous subarray of size ‘k’.
 
-// // Input: [2, 1, 5, 1, 3, 2], k=3 
+// // Input: [2, 1, 5, 1, 3, 2], k=3
 // // Output: 9
 // // Explanation: Subarray with maximum sum is [5, 1, 3].
 
@@ -59,12 +59,11 @@
 
 // console.log(maxArray(3, [2, 1, 5, 1, 3, 2]));
 
-
 // =============================================================================================================================
 
 // // - sol 2---using sliding window.
 
-// // Input: [2, 1, 5, 1, 3, 2], k=3 
+// // Input: [2, 1, 5, 1, 3, 2], k=3
 // // Output: 9
 
 // const maxSum = (k, arr) => {
@@ -119,7 +118,6 @@
 // console.log(smallSubArray(7, [2, 1, 5, 2, 3, 2]));
 // =============================================================================================================================
 
-
 // // Given a string, find the length of the longest substring in it with no more than K distinct characters.
 // // Input: String="araaci", K=2
 // // Output: 4
@@ -155,7 +153,6 @@
 // console.log(subString("araaci", 2));
 // =============================================================================================================================
 
-
 // // Input: Fruit=['A', 'B', 'C', 'A', 'C']
 // // Output: 3
 // // Explanation: We can put 2 'C' in one basket and one 'A' in the other from the subarray ['C', 'A', 'C']
@@ -190,7 +187,6 @@
 
 // console.log(fruits_into_baskets(['A', 'B', 'C', 'A', 'C']));
 
-
 // ============================================================================================================================
 // // Given a string, find the length of the longest substring, which has all distinct characters.
 
@@ -219,7 +215,7 @@
 
 // // Longest Subarray with Ones after Replacement.
 // // Given an array containing 0s and 1s,
-// // if you are allowed to replace no more than ‘k’ 0s with 1s, 
+// // if you are allowed to replace no more than ‘k’ 0s with 1s,
 // // find the length of the longest contiguous subarray having all 1s.
 // // Input: Array=[0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], k=2
 // // Output: 6
@@ -246,3 +242,47 @@
 // }
 
 // console.log(lengthOfLongestSubString([0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], 2));
+
+// ============================================================================================================================
+// Given a string and a pattern, find out if the string contains any permutation of the pattern.
+// Input: String="oidbcaf", Pattern="abc"
+// Output: true
+// Explanation: The string contains "bca" which is a permutation of the given pattern.
+
+// const findPermutation = (str, pattern) => {
+//   let windowStart = 0;
+//   let matched = 0;
+//   let charFrequency = {};
+
+//   for (let i = 0; i < pattern.length; i++) {
+//     const chr = pattern[i];
+//     if (!(chr in charFrequency)) {
+//       charFrequency[chr] = 0;
+//     }
+//     charFrequency[chr] += 1;
+//   }
+//   for (windowEnd = 0; windowEnd < str.length; windowEnd++) {
+//     const rightChar = str[windowEnd];
+//     if (rightChar in charFrequency) {
+//       charFrequency[rightChar] -= 1;
+//       if (charFrequency[rightChar] === 0) {
+//         matched += 1;
+//       }
+//     }
+//     if (matched === Object.keys(charFrequency).length) {
+//       return true;
+//     }
+//     if (windowEnd >= pattern.length - 1) {
+//       let leftchar = str[windowStart];
+//       windowStart += 1;
+//       if (leftchar in charFrequency) {
+//         if (charFrequency[leftchar] === 0) {
+//           matched -= 1;
+//         }
+//         charFrequency[leftchar] += 1;
+//       }
+//     }
+//   }
+//   return false;
+// };
+// console.log(findPermutation("oidbcaf", "bca"));
