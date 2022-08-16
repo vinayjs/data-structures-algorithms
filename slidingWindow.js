@@ -286,3 +286,48 @@
 //   return false;
 // };
 // console.log(findPermutation("oidbcaf", "bca"));
+
+//Write a function to return 
+//a list of starting indices of the anagrams of the pattern in the given string.
+// Input: String="ppqp", Pattern="pq"
+// Output: [1, 2]
+// Explanation: 
+// The two anagrams of the pattern in the given string are "pq" and "qp".
+
+// const findStringAnagrams = (str, pattern) => {
+//     let windowSatrt = 0;
+//     let matched = 0;
+//     let charFreq = {};
+//     for (let i = 0; i < pattern.length; i++) {
+//         const chr = pattern[i];
+//         if (!(chr in charFreq)) {
+//             charFreq[chr] = 0;
+//         }
+//         charFreq[chr] += 1;
+//     }
+//     const resultIndices = [];
+//     for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {
+//         let rightChar = str[windowEnd];
+//         if (rightChar in charFreq) {
+//             charFreq[rightChar] -= 1;
+//             if (charFreq[rightChar] === 0) {
+//                 matched += 1;
+//             }
+//         }
+//         if (matched === Object.keys(charFreq).length) {
+//             resultIndices.push(windowSatrt)
+//         }
+//         if (windowEnd >= pattern.length - 1) {
+//            let leftChar = str[windowSatrt]
+//            windowSatrt += 1;
+//            if (leftChar in charFreq) {
+//             if (charFreq[leftChar] === 0) {
+//                 matched -= 1;
+//             }
+//             charFreq[leftChar] += 1
+//            }
+//         }
+//     }
+//     return resultIndices;
+// }
+// console.log(findStringAnagrams("ppqp", "pq"))
