@@ -134,3 +134,38 @@
 //   }
 // };
 // console.log(searchTriplets([-3, 0, 1, 2, -1, 1, -2]));
+
+// Given an array of unsorted numbers and a target number,
+// find a triplet in the array whose sum is as close to the target number as possible,
+// return the sum of the triplet. If there are more than one such triplet,
+// return the sum of the triplet with the smallest sum.
+
+// Input: [-2, 0, 1, 2], target=2
+// Output: 1
+// Explanation: The triplet [-2, 1, 2] has the closest sum to the target.
+
+// const tripletSum = (arr, targetSum) => {
+//     arr.sort((a, b) => a - b);
+//     let smallDifferenece = Infinity;
+//     for (let i = 0; i < arr.length - 2; i++) {
+//         let left = i + 1;
+//         let right = arr.length - 1;
+//         while (left < right) {
+//             const targetDifference = targetSum - arr[i] - arr[left] - arr[right];
+//             if (targetDifference === 0) {
+//                 return targetSum
+//             }
+//             if (Math.abs(targetDifference) < Math.abs(smallDifferenece) ||
+//                (Math.abs(targetDifference) === Math.abs(smallDifferenece) && targetDifference > smallDifferenece)) {
+//                 smallDifferenece = targetDifference;
+//             }
+//             if (targetDifference > 0) {
+//                 left += 1;
+//             } else {
+//               right -= 1;
+//             }
+//         }
+//     }
+//     return targetSum - smallDifferenece;
+// }
+// console.log(tripletSum([-2, 0, 1, 2], 2));
