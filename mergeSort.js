@@ -1,4 +1,4 @@
-// Given a list of intervals, 
+// Given a list of intervals,
 // merge all the overlapping intervals to produce
 // a list that has only mutually exclusive intervals.
 
@@ -95,3 +95,56 @@
 // );
 
 // console.log("new output :", result);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Given two lists of intervals,
+// find the intersection of these two lists.
+// Each list consists of disjoint intervals sorted on their start time.
+
+// Input: arr1=[[1, 3], [5, 6], [7, 9]], arr2=[[2, 3], [5, 7]]
+// Output: [2, 3], [5, 6], [7, 7]
+// Explanation: The output list contains the common intervals between the two lists.
+
+// Input: arr1=[[1, 3], [5, 7], [9, 12]], arr2=[[5, 10]]
+// Output: [5, 7], [9, 10]
+// Explanation: The output list contains the common intervals between the two lists.
+
+// class Interval {
+//   constructor(start, end) {
+//     this.start = start;
+//     this.end = end;
+//   }
+// }
+// const merge = (intervalsA, intervalsB) => {
+//   let result = [],
+//     i = 0,
+//     j = 0;
+//   while (i < intervalsA.length && j < intervalsB.length) {
+//     aOverLapB =
+//       intervalsA[i].start >= intervalsB[j].start &&
+//       intervalsA[i].start <= intervalsB[j].end;
+//     bOverLapA =
+//       intervalsB[j].start >= intervalsA[i].start &&
+//       intervalsB[j].start <= intervalsA[i].end;
+//     if (aOverLapB || bOverLapA) {
+//       result.push(
+//         new Interval(
+//           Math.max(intervalsA[i].start, intervalsB[j].start),
+//           Math.min(intervalsA[i].end, intervalsB[j].end)
+//         )
+//       );
+//     }
+//     if (intervalsA[i].end < intervalsB[j].end) {
+//       i += 1;
+//     } else {
+//       j += 1;
+//     }
+//   }
+//   return result;
+// };
+// let result = merge(
+//   [new Interval(1, 3), new Interval(5, 6), new Interval(7, 9)],
+//   [new Interval(2, 3), new Interval(5, 7)]
+// );
+
+// console.log(result);
