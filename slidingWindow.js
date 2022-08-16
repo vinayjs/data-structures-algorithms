@@ -287,11 +287,11 @@
 // };
 // console.log(findPermutation("oidbcaf", "bca"));
 
-//Write a function to return 
+//Write a function to return
 //a list of starting indices of the anagrams of the pattern in the given string.
 // Input: String="ppqp", Pattern="pq"
 // Output: [1, 2]
-// Explanation: 
+// Explanation:
 // The two anagrams of the pattern in the given string are "pq" and "qp".
 
 // const findStringAnagrams = (str, pattern) => {
@@ -331,3 +331,57 @@
 //     return resultIndices;
 // }
 // console.log(findStringAnagrams("ppqp", "pq"))
+
+// Given a string and a pattern,
+// find the smallest substring in the given string
+// which has all the character occurrences of the given pattern.
+
+// Input: String="aabdec", Pattern="abc"
+// Output: "abdec"
+// Explanation: The smallest substring
+// having all characters of the pattern is "abdec"
+
+// const findSubstring = (str, pattern) => {
+//   let windowStart = 0,
+//     matched = 0,
+//     substrStart = 0,
+//     minLength = str.length + 1,
+//     charFrequency = {};
+
+//   for (i = 0; i < pattern.length; i++) {
+//     const chr = pattern[i];
+//     if (!(chr in charFrequency)) {
+//       charFrequency[chr] = 0;
+//     }
+//     charFrequency[chr] += 1;
+//   }
+//   for (windowEnd = 0; windowEnd < str.length; windowEnd++) {
+//     const rightChar = str[windowEnd];
+//     if (rightChar in charFrequency) {
+//       charFrequency[rightChar] -= 1;
+//       if (charFrequency[rightChar] >= 0) {
+//         matched += 1;
+//       }
+//     }
+//     while (matched === pattern.length) {
+//       if (minLength > windowEnd - windowStart + 1) {
+//         minLength = windowEnd - windowStart + 1;
+//         substrStart = windowStart;
+//       }
+//       const leftChar = str[windowStart];
+//       windowStart += 1;
+//       if (leftChar in charFrequency) {
+//         if (charFrequency[leftChar] === 0) {
+//           matched -= 1;
+//         }
+//         charFrequency[leftChar] += 1;
+//       }
+//     }
+//   }
+
+//   if (minLength > str.length) {
+//     return "";
+//   }
+//   return str.substring(substrStart, substrStart + minLength);
+// };
+// console.log(findSubstring("aabdec", "abc"));
