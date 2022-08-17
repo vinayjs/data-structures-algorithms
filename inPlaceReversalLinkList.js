@@ -169,3 +169,75 @@
 // result = reverseElements(head, 3);
 // console.log("new order : ");
 // result.printList();
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Given the head of a LinkedList and a number ‘k’,
+// reverse every alternating ‘k’ sized sub-list starting from the head.
+
+// If, in the end, you are left with a sub-list with less than ‘k’ elements, reverse it too.
+
+// class Node {
+//   constructor(value, next = null) {
+//     this.value = value;
+//     this.next = next;
+//   }
+//   printList() {
+//     let temp = this;
+//     while (temp != null) {
+//       console.log(`${temp.value}`);
+//       temp = temp.next;
+//     }
+//     console.log();
+//   }
+// }
+
+// const reverseAlternate = (head, k) => {
+//   if (k <= 1 || head === null) {
+//     return head;
+//   }
+//   let current = head,
+//     previous = null;
+//   while (current !== null) {
+//     let lastNodePrevPart = previous;
+//     let lastNodeSubList = current;
+//     let next = null;
+//     let i = 0;
+//     while (current != null && i < k) {
+//       next = current.next;
+//       current.next = previous;
+//       previous = current;
+//       current = next;
+//       i += 1;
+//     }
+//     if (lastNodePrevPart !== null) {
+//       lastNodePrevPart.next = previous;
+//     } else {
+//       head = previous;
+//     }
+//     lastNodeSubList.next = current;
+//     i = 0;
+//     while (current !== null && i < k) {
+//       previous = current;
+//       current = current.next;
+//       i += 1;
+//     }
+//   }
+//   return head;
+// };
+
+// const head = new Node(1);
+// head.next = new Node(2);
+// head.next.next = new Node(3);
+// head.next.next.next = new Node(4);
+// head.next.next.next.next = new Node(5);
+// head.next.next.next.next.next = new Node(6);
+// head.next.next.next.next.next.next = new Node(7);
+// head.next.next.next.next.next.next.next = new Node(8);
+
+// console.log("previous node : ");
+// head.printList();
+// result = reverseAlternate(head, 3, 5);
+// console.log("new order : ");
+// result.printList();
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
