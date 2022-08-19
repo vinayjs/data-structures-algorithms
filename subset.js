@@ -94,3 +94,30 @@
 // result.forEach((permutation) => {
 //   console.log(permutation);
 // });
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Given a string, find all of its permutations preserving the character sequence but changing case.
+
+// Input: "ad52"
+// Output: "ad52", "Ad52", "aD52", "AD52" 
+
+// const findPermutation = (str) => {
+//     permutations = [];
+//     permutations.push(str);
+//     for (i = 0; i < str.length; i++) {
+//         if (isNaN(parseInt(str[i], 10))) {
+//             const n = permutations.length;
+//             for (j = 0; j < n; j++) {
+//                 const chs = permutations[j].split('');
+//                 if (chs[i] === chs[i].toLowerCase()) {
+//                     chs[i] = chs[i].toUpperCase();
+//                 } else {
+//                     chs[i] = chs[i].toLowerCase();
+//                 }
+//                 permutations.push(chs.join(''));
+//             }
+//         }
+//     }
+//     return permutations;
+// }
+// console.log(`String permutations are: ${findPermutation('ad52')}`);
